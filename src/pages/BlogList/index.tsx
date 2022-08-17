@@ -20,9 +20,10 @@ const BlogList = () => {
 
   return (
     <div>
+      <h1>List of Posts</h1>
       {posts?.map((post: IPost) => (
         <div key={post?.id}>
-          <h2>{post.title}</h2>
+          <h3>{post.title}</h3>
           <p>Comments</p>
         </div>
       ))}
