@@ -1,18 +1,19 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { IPost } from "../../models/models";
 
-const BlogList = ({blogs, title}) => {
-    
+const BlogList = () => {
+    const [posts, setPosts] = useState<IPost[]>([])
+
     return ( 
-        <div className="blog-list">
-            <h2>{title}</h2>
-            {blogs.map => (
-                <div className="blog-preview" key={blog.id}>
-                    <Link>
-                        <h2>{blog.title}</h2>
-                        <p>Comments</p>
-                    </Link>
+        <div>
+            {posts?.map((post: IPost) => (
+                <div key={post?.id}>
+                    <h2>{post.title}</h2>
+                    <p>Comments</p>
                 </div>
             ))}
         </div>
      );
 }
+
+export default BlogList

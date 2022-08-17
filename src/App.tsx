@@ -1,12 +1,11 @@
 import { Route, Routes } from "react-router-dom";
+import BlogList from "./pages/BlogList";
 
-
-
-function App() {
+const App = () => {
   return (
     <div>
       <Routes>
-        <Route index />
+        <Route index element={<BlogList />}/>
       </Routes>
     </div>
   );
