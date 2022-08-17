@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import { IPost } from '../../models/models'
-import { listPosts } from '../../actions/posts'
+import { IPost } from '../../../models/models'
+import { listPosts } from '../../../actions/posts'
 
 const BlogList = () => {
   const [posts, setPosts] = useState<IPost[]>([])
@@ -20,11 +20,10 @@ const BlogList = () => {
 
   return (
     <div>
-      <h1>List of Posts</h1>
       {posts?.map((post: IPost) => (
         <div key={post?.id}>
           <h3>{post.title}</h3>
-          <p>Comments</p>
+          <p>{post.body}</p>
         </div>
       ))}
     </div>

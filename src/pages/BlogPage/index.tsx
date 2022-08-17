@@ -1,37 +1,49 @@
-import { useState, ChangeEvent } from 'react'
+import { useState } from 'react'
+import { Outlet } from 'react-router-dom'
+import styled from 'styled-components'
+import Button from '../../components/Button'
+import CreatePostModal from './components/CreatePostModal'
 
-interface BlogPageProps {}
+const Navbar = styled.div`
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.border};
+`
 
-const BlogPage = (props: BlogPageProps) => {
-  const [title, setTitle] = useState('')
-  const [body, setBody] = useState('')
+const NavbarTitle = styled.span`
+  font-weight: 600;
+  font-size: 2rem;
+  pointer-events: none;
+`
 
-  const handlePost = (event: ChangeEvent<HTMLFormElement>) => {
-    event.preventDefault()
-    const blog = { title, body }
-  }
+const Container = styled.div`
+  margin: auto;
+  padding: 0 1rem;
+  max-width: 820px;
+`
 
-  const handleTitle = (event: ChangeEvent<HTMLInputElement>) => setTitle(event.target.value)
-const handleBody = (event: ChangeEvent<HTMLTextAreaElement>) => setBody(event.target.value)
+const BlogPage = () => {
+  const [openPostModal, setOpenPostModal] = useState<boolean>(false)
+
+  const handleOpenPostModal = () => setOpenPostModal(true)
+  const handleClosePostModal = () => setOpenPostModal(false)
+
   return (
-    <div>
-      <h1>Add a New Blog</h1>
-      <form onSubmit={handlePost}>
-        <label>Blog title</label>
-        <input
-          type='text'
-          value={title}
-          onChange={handleTitle}
-        />
-        <label>Blog body</label>
-        <textarea
-          value={body}
-          onChange={handleBody}
-        />
-        <label>Comments</label>
-        <button>Add Blog</button>
-      </form>
-    </div>
+    <>
+      <Navbar>
+        <NavbarTitle>Blog</NavbarTitle>
+
+        <Button onClick={handleOpenPostModal}>Add Post</Button>
+      </Navbar>
+
+      <Container>
+        <Outlet />
+      </Container>
+
+      <CreatePostModal open={openPostModal} onClose={handleClosePostModal} />
+    </>
   )
 }
 
