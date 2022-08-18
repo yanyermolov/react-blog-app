@@ -3,18 +3,17 @@ import { createRoot } from 'react-dom/client'
 import App from './App'
 import './index.css'
 import { BrowserRouter } from 'react-router-dom'
-import { ThemeProvider } from 'styled-components'
-import theme from './utilities/theme'
+import { PostsContextProvider } from './context/PostsContextProvider'
 
 const container = document.getElementById('root')!
 const root = createRoot(container)
 
 root.render(
   <React.StrictMode>
-    <ThemeProvider {...{ theme }}>
+    <PostsContextProvider>
       <BrowserRouter>
         <App />
       </BrowserRouter>
-    </ThemeProvider>
+    </PostsContextProvider>
   </React.StrictMode>
 )

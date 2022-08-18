@@ -14,12 +14,6 @@ const StyledButton = styled.button<{ variant: VariantType }>`
   padding: 0.5rem 1rem;
   font-size: 1rem;
   font-weight: 600;
-  background: ${({ theme, variant }) =>
-    variant === 'filled' ? theme.colors.primary : 'transparent'};
-  color: ${({ theme }) => theme.colors.white};
-  border: 1px solid ${({ theme }) => theme.colors.white};
-  border-color: '1px solid ${({ theme, variant }) =>
-    variant === 'outlined' ? theme.colors.white : 'none'};
   border-radius: 10px;
 `
 

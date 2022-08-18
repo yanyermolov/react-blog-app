@@ -8,8 +8,8 @@ const App = () => {
     <Routes>
       <Route path="/" element={<BlogPage />}>
         <Route index element={<PostsListPage />} />
-      </Route>
         <Route path="/:id" element={<PostPage />} />
+      </Route>
     </Routes>
   )
 }
