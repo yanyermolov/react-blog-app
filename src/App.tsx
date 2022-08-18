@@ -1,16 +1,17 @@
-import { Route, Routes } from "react-router-dom";
-import BlogList from "./pages/BlogList";
+import { Route, Routes } from 'react-router-dom'
+import BlogPage from './pages/BlogPage'
+import PostsListPage from './pages/PostsListPage'
 import PostPage from "./pages/PostPage";
 
 const App = () => {
   return (
-    <div>
-      <Routes>
-        <Route index element={<BlogList />}/>
+    <Routes>
+      <Route path="/" element={<BlogPage />}>
+        <Route index element={<PostsListPage />} />
+      </Route>
         <Route path="/:id" element={<PostPage />} />
-      </Routes>
-    </div>
-  );
+    </Routes>
+  )
 }
 
-export default App;
+export default App

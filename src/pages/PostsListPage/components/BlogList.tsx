@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import { IPost } from '../../models/models'
-import { listPosts } from '../../actions/posts'
+import { IPost } from '../../../models/models'
+import { listPosts } from '../../../actions/posts'
 import { useNavigate } from 'react-router-dom'
 
 const BlogList = () => {
