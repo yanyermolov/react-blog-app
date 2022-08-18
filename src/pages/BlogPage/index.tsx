@@ -11,23 +11,18 @@ const BlogPage = (props: BlogPageProps) => {
     const blog = { title, body }
   }
 
-  const handleTitle = (event: ChangeEvent<HTMLInputElement>) => setTitle(event.target.value)
-const handleBody = (event: ChangeEvent<HTMLTextAreaElement>) => setBody(event.target.value)
+  const handleTitle = (event: ChangeEvent<HTMLInputElement>) =>
+    setTitle(event.target.value)
+  const handleBody = (event: ChangeEvent<HTMLTextAreaElement>) =>
+    setBody(event.target.value)
   return (
     <div>
       <h1>Add a New Blog</h1>
       <form onSubmit={handlePost}>
         <label>Blog title</label>
-        <input
-          type='text'
-          value={title}
-          onChange={handleTitle}
-        />
+        <input type='text' value={title} onChange={handleTitle} />
         <label>Blog body</label>
-        <textarea
-          value={body}
-          onChange={handleBody}
-        />
+        <textarea value={body} onChange={handleBody} />
         <label>Comments</label>
         <button>Add Blog</button>
       </form>
